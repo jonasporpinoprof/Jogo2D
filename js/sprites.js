@@ -26,8 +26,8 @@ const player = new Sprite({
         y: 100
     },
     velocity:{
-        x: 0,
-        y: 2
+        x: 2,
+        y: 0
     },
     dimensions: {
         width:50,
