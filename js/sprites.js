@@ -1,13 +1,22 @@
+const gravity = 0.6;
+
 class Sprite {
-    constructor({position, dimensions}){
+    constructor({position, velocity, dimensions}){
         this.position = position;
+        this.velocity = velocity;
         this.width = dimensions.width;
-        this.heignt = dimensions.heignt;
+        this.height = dimensions.height;
     }
 
     draw(){
         ctx.fillStyle = "green";
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.heignt);
+        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    }
+    update(){
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+
+        this.draw();
     }
 }
 
@@ -15,6 +24,10 @@ const player = new Sprite({
     position: {
         x: 100,
         y: 100
+    },
+    velocity:{
+        x: 0,
+        y: 2
     },
     dimensions: {
         width:50,
